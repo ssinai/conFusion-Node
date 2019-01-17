@@ -20,8 +20,8 @@ const leaderSchema = new Schema({
       required: true
   },
   abbr: {
-      type: String,
-      default: ''
+    type: String,
+    required: true
   },
   featured: {
     type: Boolean,
