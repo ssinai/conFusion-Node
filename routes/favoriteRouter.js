@@ -40,6 +40,7 @@ favoriteRouter.route('/')
       }, (err) => next(err))
       .catch((err) => next(err));
   })
+  .catch((err) => next(err));
 })
 .delete(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
   Favorites.findOneAndDelete({user: req.user._id})
@@ -67,6 +68,7 @@ favoriteRouter.route('/:dishId')
       }, (err) => next(err))
       .catch((err) => next(err));
   })
+  .catch((err) => next(err));
 })
 .delete(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
   Favorites.findOne({user: req.user._id})
@@ -80,11 +82,10 @@ favoriteRouter.route('/:dishId')
         res.setHeader('Content-Type', 'application/json');
         res.json(favorite);
     }, (err) => next(err))
-  .catch((err) => next(err));
+    .catch((err) => next(err));
   })
+  .catch((err) => next(err));
 });
-
-
 
 
 module.exports = favoriteRouter;
