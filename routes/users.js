@@ -50,6 +50,7 @@ router.post('/signup', cors.corsWithOptions, (req, res, next) => {
 });
 
 router.post('/login',cors.corsWithOptions,  passport.authenticate('local'), (req, res) => {
+  console.log("in /login");
   var token = authenticate.getToken({_id: req.user._id});
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
